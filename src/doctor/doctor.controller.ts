@@ -10,10 +10,11 @@ export class DoctorController {
   findAll() {
     return this.doctorService.findAll();
   }
-  @Get()
-  findWithSpecialization(@Param('spec') specialization: String) {
-    return this.doctorService.findWithSpecialization(specialization);
-    }
+  @Get('specialization/:spec')
+  findWithSpecialization(@Param('spec') specialization: string) {
+  return this.doctorService.findWithSpecialization(specialization);
+  }
+
 
   @Get(':id')
   findOne(@Param('id') id: string) {

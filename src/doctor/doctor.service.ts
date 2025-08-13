@@ -11,9 +11,12 @@ export class DoctorService {
   findAll(): Doctor[] {
     return this.doctors;
   }
-  findWithSpecialization(specialization: String): Doctor[]{
-    return this.doctors.map(doc=>doc.specialization)
-  }
+  findWithSpecialization(specialization: string): Doctor[] {
+  return this.doctors.filter(
+    doc => doc.specialization.toLowerCase() === specialization.toLowerCase()
+  );
+}
+
 
   findOne(id: number): Doctor | undefined {
     return this.doctors.find((doc) => doc.id === id);
